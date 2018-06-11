@@ -1,26 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Service } from './service';
 
 // tslint:disable-next-line:import-blacklist
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { User } from '../structures/user';
-
-const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { IUser } from '../structures/user';
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
+export class UserService extends Service {
 
-    private _registerUserUrl = 'api/account/register';
+    private _registerUserUrl = 'http://localhost/TerryPoolApi/api/account/register';
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { super(); }
 
-    addUser(user: User): Observable<User> {
-        return this.http.post<User>(this._registerUserUrl, user, httpOptions).pipe(
-            tap((hero: User) => this.log(`added hero w/ id=${hero.id}`)),
-            catchError(this.handleError<User>('addHero'))
+    addUser(user: IUser): Observable<IUser> {
+        // tslint:disable-next-line:no-debugger
+        debugger;
+        const httpOptions = {
+            headers: this.getHeaders()
+        };
+
+        return this.http.post<IUser>(this._registerUserUrl, user, httpOptions).pipe(
+            tap((hero: IUser) => this.log(`added hero w/ id=${hero.id}`)),
+            catchError(this.handleError<IUser>('addHero'))
         );
     }
 
