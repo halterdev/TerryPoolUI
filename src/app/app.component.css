@@ -1,0 +1,44 @@
+.mainForm {
+    margin: auto;
+    margin-top: 200px;
+    width: 28%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.formHeader {
+    height: 25px;
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+.formHeaderLegend {
+    margin-left: 5%;
+}
+
+.form {
+    width: 65%;
+    margin: auto;
+}
+
+.label {
+    width: 20%;
+}
+
+.value {
+    width: 80%;
+}
+
+.textbox {
+    height: 25px;
+    border-radius: 5px;
+}
+
+.submitRow {
+    text-align: center;
+}
+
+.btnSubmit {
+    border-radius: 5px;
+}

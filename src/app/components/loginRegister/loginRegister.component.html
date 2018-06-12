@@ -1,0 +1,36 @@
+<app-nav></app-nav>
+<div class="mainForm">
+    <div class="formHeader">
+        <p class="formHeaderLegend">{{ page }}</p>
+    </div>
+    <div class="formDetails">
+        <table class="form">
+            <tr>
+                <td class="label">
+                    <p>Email</p>
+                </td>
+                <td class="value">
+                    <input type="text" class="textbox" [(ngModel)]="user.email" />
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <p>Password</p>
+                </td>
+                <td class="value">
+                    <input type="password" class="textbox" [(ngModel)]="user.password" />
+                </td>
+            </tr>
+            <tr>
+                <td class="submitRow" colspan="2">
+                    <input type="submit" class="btnSubmit" (click)="submitClick()" />
+                </td>
+            </tr>
+            <tr>
+                <td class="submitRow" colspan="2">
+                    <p id="register" (click)="registerClick()" *ngIf="page === 'Login'">Need to Register?</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

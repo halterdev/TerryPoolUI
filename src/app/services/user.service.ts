@@ -15,8 +15,7 @@ export class UserService extends Service {
     constructor(private http: HttpClient) { super(); }
 
     addUser(user: IUser): Observable<IUser> {
-        // tslint:disable-next-line:no-debugger
-        debugger;
+
         const httpOptions = {
             headers: this.getHeaders()
         };
