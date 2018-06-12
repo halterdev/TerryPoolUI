@@ -40,7 +40,10 @@ export class LoginRegisterComponent {
     }
 
     login(): void {
-
+        this.userService.loginUser(this.user)
+            .subscribe(u => {
+                localStorage.setItem('token', u.token);
+            });
     }
 
     register(): void {
