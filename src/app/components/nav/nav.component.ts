@@ -1,4 +1,5 @@
 import { ViewEncapsulation, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -9,6 +10,11 @@ import { ViewEncapsulation, Component } from '@angular/core';
 
 export class NavComponent {
 
-    constructor() { }
+    constructor(private router: Router) { }
 
+    logout(): void {
+        localStorage.clear();
+
+        this.router.navigate(['/login']);
+    }
 }
