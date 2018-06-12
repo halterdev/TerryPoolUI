@@ -8,13 +8,23 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule } from '@angular/router';
 
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
+import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
+
+import { AdminComponent } from './components/admin/admin.component';
 import { LoginRegisterComponent } from './components/loginRegister/loginRegister.component';
 import { NavComponent } from './components/nav/nav.component';
 
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    AdminComponent,
     LoginRegisterComponent,
     NavComponent
   ],
@@ -22,9 +32,14 @@ import { NavComponent } from './components/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
