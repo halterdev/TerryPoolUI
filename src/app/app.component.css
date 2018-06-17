@@ -42,3 +42,39 @@
 .btnSubmit {
     border-radius: 5px;
 }
+
+.lblDropdown {
+    margin: 0;
+    margin-right: .5%;
+    padding: 0;
+    display: inline;
+}
+
+.dropdown {
+    border-radius: 5px;
+}
+
+.menu {
+    height: 40px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-left: 1%;
+}
+
+.menuBox {
+    width: 5%;
+    height: 40px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.lblMenuBox {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,11 @@
+<div class="menu">
+    <div id="seasonDropdown">
+        <p class="lblDropdown">Season:</p>
+        <select class="dropdown">
+            <option *ngFor="let s of seasons" [value]="s.year">{{ s.year }}</option>
+        </select>
+    </div>
+    <div class="menuBox">
+        <p class="lblMenuBox">Weeks</p>
+    </div>
+</div>

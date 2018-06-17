@@ -13,8 +13,12 @@ import { AuthService } from './auth/auth.service';
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminMenuComponent } from './components/admin/adminMenu/adminMenu.component';
 import { LoginRegisterComponent } from './components/loginRegister/loginRegister.component';
 import { NavComponent } from './components/nav/nav.component';
+import { TeamDropdownComponent } from './components/teamDropdown/teamDropdown.component';
+import { WeeksAdminComponent } from './components/admin/weeksAdmin/weeksAdmin.component';
+import { WeekDropdownComponent } from './components/weekDropdown/weekDropdown.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -25,8 +29,12 @@ export function tokenGetter() {
     AppComponent,
 
     AdminComponent,
+    AdminMenuComponent,
     LoginRegisterComponent,
-    NavComponent
+    NavComponent,
+    TeamDropdownComponent,
+    WeeksAdminComponent,
+    WeekDropdownComponent
   ],
   imports: [
     BrowserModule,

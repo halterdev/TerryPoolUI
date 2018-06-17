@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
 import { SeasonService } from '../../services/seasons/season.service';
 import { ISeason } from '../../structures/seasons/season';
@@ -13,15 +13,4 @@ import { ISeason } from '../../structures/seasons/season';
 
 export class AdminComponent {
 
-    public season: ISeason = {
-        id: 0,
-        year: 2018
-    };
-
-    constructor(private seasonService: SeasonService) { }
-
-    addSeason(): void {
-        this.seasonService.addSeason(this.season)
-            .subscribe();
-    }
 }
