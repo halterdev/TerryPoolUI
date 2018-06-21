@@ -1,0 +1,4 @@
+<div id="gameAdder">
+    <app-teamDropdown [selectedTeamId]="game.awayTeamId" (teamChanged)="awayTeamChanged($event)"></app-teamDropdown>
+    <app-teamDropdown [selectedTeamId]="game.homeTeamId" (teamChanged)="homeTeamChanged($event)"></app-teamDropdown>
+</div>

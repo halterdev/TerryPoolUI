@@ -1,7 +1,6 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-
-import { SeasonService } from '../../services/seasons/season.service';
-import { ISeason } from '../../structures/seasons/season';
+import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
+import { WeeksAdminComponent } from './weeksAdmin/weeksAdmin.component';
+import { AdminMenuComponent } from './adminMenu/adminMenu.component';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -11,6 +10,17 @@ import { ISeason } from '../../structures/seasons/season';
     encapsulation: ViewEncapsulation.Native
 })
 
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
+    @ViewChild(AdminMenuComponent) adminMenuComponent: AdminMenuComponent;
+    @ViewChild(WeeksAdminComponent) weeksAdminComponent: WeeksAdminComponent;
+
+    ngOnInit(): void {
+        this.weeksAdminComponent.week = 1;
+        this.weeksAdminComponent.seasonId = 1;
+    }
+
+    seasonChanged(seasonId: number): void {
+        this.weeksAdminComponent.seasonId = seasonId;
+    }
 }

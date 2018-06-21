@@ -1,3 +1,4 @@
-<select class="dropdown">
-    <option *ngFor="let t of teams">{{ t.city + ' ' + t.nickname }}</option>
+<select class="dropdown" [(ngModel)]="selectedTeamId" (change)="teamChange()">
+    <option value="0">-- Select --</option>
+    <option *ngFor="let t of teams" [value]="t.id">{{ t.city + ' ' + t.nickname }}</option>
 </select>

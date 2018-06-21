@@ -1,6 +1,8 @@
 <div id="weeksFrame">
     <app-weekDropdown></app-weekDropdown>
-    <div>
-        
+    <p class="lblLink" style="margin-left: 2%" (click)="addGame()">Add Game</p>
+    <button class="btnSave" style="margin-left: 2%" (click)="save()">Save</button>
+    <div id="addGamesFrame">
+        <app-gameAdder class="gameAdder" *ngFor="let g of games" [game]="g" (gameChanged)="gameChanged($event)"></app-gameAdder>
     </div>
 </div>

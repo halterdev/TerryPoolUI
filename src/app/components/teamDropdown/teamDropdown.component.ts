@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ITeam } from '../../structures/teams/team';
 import { TeamService } from '../../services/teams/team.service';
 
@@ -12,6 +12,9 @@ import { TeamService } from '../../services/teams/team.service';
 
 export class TeamDropdownComponent implements OnInit {
 
+    @Input() selectedTeamId = 0;
+    @Output() teamChanged: EventEmitter<number> = new EventEmitter<number>();
+
     teams: ITeam[];
 
     constructor(private teamService: TeamService) { }
@@ -20,9 +23,12 @@ export class TeamDropdownComponent implements OnInit {
         this.getTeams();
     }
 
+    teamChange(): void {
+        this.teamChanged.emit(this.selectedTeamId);
+    }
+
     private getTeams(): void {
         this.teamService.getTeams()
-            // tslint:disable-next-line:no-debugger
-            .subscribe(t => { this.teams = t; debugger; });
+            .subscribe(t => { this.teams = t; });
     }
 }
