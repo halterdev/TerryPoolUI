@@ -15,8 +15,8 @@ export class WeeksAdminComponent implements OnInit {
 
     @ViewChildren(GameAdderComponent) gameAdderComponents: QueryList<GameAdderComponent>;
 
-    week: number;
-    seasonId: number;
+    seasonId = 1;
+    weekId: number;
 
     games: IGame[];
 
@@ -29,21 +29,13 @@ export class WeeksAdminComponent implements OnInit {
     }
 
     loadGames(): void {
-        this.gameService.getGames(this.seasonId, this.week)
+        this.gameService.getGames(this.weekId)
             .subscribe(g => {
-                // this.games = g;
                 this.games = [];
 
                 for (let i = 0; i < g.length; i++) {
                     this.games.push(g[i]);
                 }
-                // const gameAdderArray = this.gameAdderComponents.toArray();
-
-                // for (let i = 0; i < this.games.length; i++) {
-                //     const game = this.games[i];
-                //     gameAdderArray[i].game.awayTeamId = game.awayTeamId;
-                //     gameAdderArray[i].game.homeTeamId = game.homeTeamId;
-                // }
              });
     }
 
@@ -54,13 +46,19 @@ export class WeeksAdminComponent implements OnInit {
 
         const game: IGame = {
             id: 0,
+            weekId: 1,
             awayTeamId: 0,
             homeTeamId: 0,
-            week: this.week,
-            seasonId: this.seasonId
+            awayTeam: null,
+            homeTeam: null,
+            week: null
         };
 
         this.games.push(game);
+    }
+
+    weekChanged(weekId: number): void {
+        this.weekId = weekId;
     }
 
     save(): void {

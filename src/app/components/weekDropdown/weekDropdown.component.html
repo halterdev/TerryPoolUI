@@ -1,4 +1,4 @@
 <p class="lblDropdown">Week:</p>
-<select class="dropdown">
-    <option *ngFor="let w of weeks">{{ w }}</option>
+<select class="dropdown" [(ngModel)]="selectedWeekId" (change)="weekChanged()">
+    <option *ngFor="let w of weeks">{{ w.weekNum }}</option>
 </select>

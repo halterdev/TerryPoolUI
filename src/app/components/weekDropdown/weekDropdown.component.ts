@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { WeekService } from '../../services/weeks/week.service';
+import { IWeek } from '../../structures/weeks/week';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -8,8 +10,30 @@ import { Component, ViewEncapsulation } from '@angular/core';
     encapsulation: ViewEncapsulation.Native
 })
 
-export class WeekDropdownComponent {
-    weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-        14, 15, 16, 17];
+export class WeekDropdownComponent implements OnInit {
+
+    @Input() seasonId: number;
+    @Output() weekChange: EventEmitter<number> = new EventEmitter<number>();
+
+    weeks: IWeek[];
+
+    selectedWeekId = 1;
+
+    constructor(private weekService: WeekService) {}
+
+    ngOnInit(): void {
+        this.loadWeeks();
+    }
+
+    weekChanged(): void {
+        this.weekChange.emit(this.selectedWeekId);
+    }
+
+    private loadWeeks(): void {
+        this.weekService.getWeeks(this.seasonId)
+            .subscribe(w => {
+                this.weeks = w;
+            });
+    }
 }
 

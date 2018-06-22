@@ -12,15 +12,9 @@ import { AdminMenuComponent } from './adminMenu/adminMenu.component';
 
 export class AdminComponent implements OnInit {
 
-    @ViewChild(AdminMenuComponent) adminMenuComponent: AdminMenuComponent;
     @ViewChild(WeeksAdminComponent) weeksAdminComponent: WeeksAdminComponent;
 
     ngOnInit(): void {
-        this.weeksAdminComponent.week = 1;
-        this.weeksAdminComponent.seasonId = 1;
-    }
-
-    seasonChanged(seasonId: number): void {
-        this.weeksAdminComponent.seasonId = seasonId;
+        this.weeksAdminComponent.weekId = 1;
     }
 }

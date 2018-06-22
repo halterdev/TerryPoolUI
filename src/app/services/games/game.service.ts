@@ -26,12 +26,12 @@ export class GameService extends Service {
         );
     }
 
-    getGames(seasonId: number, week: number): Observable<IGame[]> {
+    getGames(weekId: number): Observable<IGame[]> {
         const httpOptions = {
             headers: this.getHeaders()
         };
 
-        const url = this._getGamesUrl + '/' + seasonId + '/' + week;
+        const url = this._getGamesUrl + '/' + weekId;
 
         return this.http.get<IGame[]>(url, httpOptions);
     }

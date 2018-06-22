@@ -15,6 +15,8 @@ import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminMenuComponent } from './components/admin/adminMenu/adminMenu.component';
 import { GameAdderComponent } from './components/admin/weeksAdmin/gameAdder/gameAdder.component';
+import { GamePickerComponent } from './components/gamePicker/gamePicker.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginRegisterComponent } from './components/loginRegister/loginRegister.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TeamDropdownComponent } from './components/teamDropdown/teamDropdown.component';
@@ -32,6 +34,8 @@ export function tokenGetter() {
     AdminComponent,
     AdminMenuComponent,
     GameAdderComponent,
+    GamePickerComponent,
+    DashboardComponent,
     LoginRegisterComponent,
     NavComponent,
     TeamDropdownComponent,

@@ -1,5 +1,5 @@
 <div id="weeksFrame">
-    <app-weekDropdown></app-weekDropdown>
+    <app-weekDropdown [seasonId]="seasonId" (weekChanged)="weekChanged($event)"></app-weekDropdown>
     <p class="lblLink" style="margin-left: 2%" (click)="addGame()">Add Game</p>
     <button class="btnSave" style="margin-left: 2%" (click)="save()">Save</button>
     <div id="addGamesFrame">

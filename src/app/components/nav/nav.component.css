@@ -18,3 +18,25 @@
     #logout > p {
         cursor: pointer;
     }
+
+.menuOption {
+    display: inline-block;
+    margin-left: 2%;
+    width: 5%;
+    height: 60px;
+    text-align: center;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+    .menuOption > p {
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+.selectedMenuOption {
+    background-color: lightgreen;
+    color: white;
+}
