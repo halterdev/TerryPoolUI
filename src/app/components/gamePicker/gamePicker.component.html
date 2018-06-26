@@ -1,6 +1,6 @@
 <div id="frame">
     <app-weekDropdown [seasonId]="seasonId"></app-weekDropdown>
-    <button class="btnSave" style="margin-left: 5%" (class)="save()">Save</button>
+    <button class="btnSave" style="margin-left: 5%" (click)="save()">Save</button>
     <div class="pickRow" *ngFor="let g of games">
         <p>{{ g.awayTeam.city + ' ' + g.awayTeam.nickname }}</p>
         <input type="checkbox" [(ngModel)]="g.awayTeam.isSelected" />
