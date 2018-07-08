@@ -10,18 +10,30 @@ import { IUserSelection } from '../../structures/users/userSelection';
 @Injectable({ providedIn: 'root' })
 export class SelectionService extends Service {
 
-    private _addUserSelectionUrl = 'http://localhost/TerryPoolApi/api/selections/add';
+    private _upsertUserSelectionUrl = 'http://localhost/TerryPoolApi/api/selections/upsert';
+
+    private _getUserSelectionUrl = 'http://localhost/TerryPoolApi/api/selections/get';
 
     constructor(private http: HttpClient) { super(); }
 
-    add(selection: IUserSelection): Observable<IUserSelection> {
+    upsert(selection: IUserSelection): Observable<IUserSelection> {
         const httpOptions = {
             headers: this.getHeaders()
         };
 
-        return this.http.post<IUserSelection>(this._addUserSelectionUrl, selection, httpOptions).pipe(
+        return this.http.post<IUserSelection>(this._upsertUserSelectionUrl, selection, httpOptions).pipe(
             tap((s: IUserSelection) => this.log(``)),
             catchError(this.handleError<IUserSelection>('addSelection'))
         );
+    }
+
+    get(weekId: number): Observable<IUserSelection> {
+        const httpOptions = {
+            headers: this.getHeaders()
+        };
+
+        const url = this._getUserSelectionUrl + '/' + weekId;
+
+        return this.http.get<IUserSelection>(url, httpOptions);
     }
 }

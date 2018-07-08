@@ -3,9 +3,9 @@
     <button class="btnSave" style="margin-left: 5%" (click)="save()">Save</button>
     <div class="pickRow" *ngFor="let g of games">
         <p>{{ g.awayTeam.city + ' ' + g.awayTeam.nickname }}</p>
-        <input type="checkbox" [(ngModel)]="g.awayTeam.isSelected" />
+        <input type="checkbox" [(ngModel)]="g.awayTeam.isSelected" (click)="teamSelected(g.awayTeam)" />
         <p id="at">@</p>
         <p>{{ g.homeTeam.city + ' ' + g.homeTeam.nickname }}</p>
-        <input type="checkbox" [(ngModel)]="g.homeTeam.isSelected" />
+        <input type="checkbox" [(ngModel)]="g.homeTeam.isSelected" (click)="teamSelected(g.homeTeam)" />
     </div>
 </div>
