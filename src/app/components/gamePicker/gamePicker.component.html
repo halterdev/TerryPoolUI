@@ -1,5 +1,5 @@
 <div id="frame">
-    <app-weekDropdown [seasonId]="seasonId"></app-weekDropdown>
+    <app-weekDropdown></app-weekDropdown>
     <button class="btnSave" style="margin-left: 5%" (click)="save()">Save</button>
     <div class="pickRow" *ngFor="let g of games">
         <p>{{ g.awayTeam.city + ' ' + g.awayTeam.nickname }}</p>

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Output, EventEmitter } from '@angular/core';
 import { SeasonService } from '../../../services/seasons/season.service';
 import { ISeason } from '../../../structures/seasons/season';
 
@@ -15,6 +15,8 @@ export class AdminMenuComponent implements OnInit {
     seasons: ISeason[];
     selectedSeasonId: number;
 
+    @Output() menuEvent: EventEmitter<string> = new EventEmitter<string>();
+
     constructor(private seasonService: SeasonService) { }
 
     ngOnInit(): void {
@@ -27,5 +29,9 @@ export class AdminMenuComponent implements OnInit {
                 this.seasons = s;
                 this.selectedSeasonId = this.seasons[0].id;
             });
+    }
+
+    menuChange(module: string): void {
+        this.menuEvent.emit(module);
     }
 }

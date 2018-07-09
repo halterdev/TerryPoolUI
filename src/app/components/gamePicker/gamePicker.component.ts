@@ -4,6 +4,7 @@ import { IGame } from '../../structures/games/game';
 import { SelectionService } from '../../services/selections/selection.service';
 import { IUserSelection } from '../../structures/users/userSelection';
 import { ITeam } from '../../structures/teams/team';
+import { Constants } from '../../constants';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -15,8 +16,8 @@ import { ITeam } from '../../structures/teams/team';
 
 export class GamePickerComponent implements OnInit {
 
-    seasonId = 1;
-    weekId: number;
+    seasonId = Constants.CURRENT_SEASON_ID;
+    weekId = Constants.CURRENT_WEEK_ID;
 
     games: IGame[];
     userSelection: IUserSelection;
@@ -31,7 +32,7 @@ export class GamePickerComponent implements OnInit {
         const selection: IUserSelection = {
             id: 0,
             teamId: 0,
-            weekId: 1
+            weekId: this.weekId
         };
 
         for (let i = 0; i < this.games.length; i++) {

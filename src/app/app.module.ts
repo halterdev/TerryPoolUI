@@ -19,6 +19,7 @@ import { GamePickerComponent } from './components/gamePicker/gamePicker.componen
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginRegisterComponent } from './components/loginRegister/loginRegister.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ResultsComponent } from './components/admin/results/results.component';
 import { TeamDropdownComponent } from './components/teamDropdown/teamDropdown.component';
 import { WeeksAdminComponent } from './components/admin/weeksAdmin/weeksAdmin.component';
 import { WeekDropdownComponent } from './components/weekDropdown/weekDropdown.component';
@@ -38,6 +39,7 @@ export function tokenGetter() {
     DashboardComponent,
     LoginRegisterComponent,
     NavComponent,
+    ResultsComponent,
     TeamDropdownComponent,
     WeeksAdminComponent,
     WeekDropdownComponent

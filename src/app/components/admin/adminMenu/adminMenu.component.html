@@ -5,7 +5,10 @@
             <option *ngFor="let s of seasons" [value]="s.year">{{ s.year }}</option>
         </select>
     </div>
-    <div class="menuBox">
+    <div class="menuBox" (click)="menuChange('weeks')">
         <p class="lblMenuBox">Weeks</p>
+    </div>
+    <div class="menuBox" (click)="menuChange('results')">
+        <p class="lblMenuBox">Results</p>
     </div>
 </div>

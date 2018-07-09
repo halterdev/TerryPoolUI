@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { WeekService } from '../../services/weeks/week.service';
 import { IWeek } from '../../structures/weeks/week';
+import { Constants } from '../../constants';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -12,12 +13,13 @@ import { IWeek } from '../../structures/weeks/week';
 
 export class WeekDropdownComponent implements OnInit {
 
-    @Input() seasonId: number;
-    @Output() weekChange: EventEmitter<number> = new EventEmitter<number>();
+    seasonId = Constants.CURRENT_SEASON_ID;
 
     weeks: IWeek[];
 
-    selectedWeekId = 1;
+    selectedWeekId = Constants.CURRENT_WEEK_ID;
+
+    @Output() weekChange: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private weekService: WeekService) {}
 

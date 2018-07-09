@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation, QueryList, ViewChildren, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, QueryList, OnInit, ViewChildren } from '@angular/core';
 import { IGame } from '../../../structures/games/game';
 import { GameAdderComponent } from './gameAdder/gameAdder.component';
 import { GameService } from '../../../services/games/game.service';
+import { Constants } from '../../../constants';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -15,20 +16,20 @@ export class WeeksAdminComponent implements OnInit {
 
     @ViewChildren(GameAdderComponent) gameAdderComponents: QueryList<GameAdderComponent>;
 
-    seasonId = 1;
-    weekId: number;
+    seasonId = Constants.CURRENT_SEASON_ID;
+    weekId = Constants.CURRENT_WEEK_ID;
 
     games: IGame[];
 
     constructor(private gameService: GameService) { }
 
     ngOnInit(): void {
-        this.games = [];
-
         this.loadGames();
     }
 
     loadGames(): void {
+        this.games = [];
+
         this.gameService.getGames(this.weekId)
             .subscribe(g => {
                 this.games = [];
@@ -46,7 +47,7 @@ export class WeeksAdminComponent implements OnInit {
 
         const game: IGame = {
             id: 0,
-            weekId: 1,
+            weekId: this.weekId,
             awayTeamId: 0,
             homeTeamId: 0,
             awayTeam: null,

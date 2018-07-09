@@ -1,3 +1,4 @@
 <app-nav></app-nav>
-<app-adminMenu></app-adminMenu>
-<app-weeksAdmin></app-weeksAdmin>
+<app-adminMenu (menuEvent)="menuEvent($event)"></app-adminMenu>
+<app-weeksAdmin *ngIf="module === 'weeks'"></app-weeksAdmin>
+<app-results *ngIf="module === 'results'"></app-results>

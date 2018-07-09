@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import { WeeksAdminComponent } from './weeksAdmin/weeksAdmin.component';
 import { AdminMenuComponent } from './adminMenu/adminMenu.component';
 
@@ -10,11 +10,13 @@ import { AdminMenuComponent } from './adminMenu/adminMenu.component';
     encapsulation: ViewEncapsulation.Native
 })
 
-export class AdminComponent implements OnInit {
+export class AdminComponent {
 
     @ViewChild(WeeksAdminComponent) weeksAdminComponent: WeeksAdminComponent;
 
-    ngOnInit(): void {
-        this.weeksAdminComponent.weekId = 1;
+    module = 'weeks';
+
+    menuEvent(module: string): void {
+        this.module = module;
     }
 }
