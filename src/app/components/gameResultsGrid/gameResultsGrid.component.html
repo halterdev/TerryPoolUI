@@ -1,0 +1,8 @@
+<button class="btnSave" style="margin-left: 5%" (click)="save()">Save</button>
+<div class="gameRow" *ngFor="let g of games">
+    <p>{{ g.awayTeam.city + ' ' + g.awayTeam.nickname }}</p>
+    <input class="tbResult" type="text" [(ngModel)]="g.awayScore" />
+    <p id="at">@</p>
+    <p>{{ g.homeTeam.city + ' ' + g.homeTeam.nickname }}</p>
+    <input class="tbResult" type="text" [(ngModel)]="g.homeScore" />
+</div>

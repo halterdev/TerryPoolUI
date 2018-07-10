@@ -52,7 +52,9 @@ export class WeeksAdminComponent implements OnInit {
             homeTeamId: 0,
             awayTeam: null,
             homeTeam: null,
-            week: null
+            week: null,
+            awayScore: 0,
+            homeScore: 0
         };
 
         this.games.push(game);

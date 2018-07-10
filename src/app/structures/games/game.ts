@@ -9,4 +9,6 @@ export interface IGame {
     awayTeam: ITeam;
     homeTeam: ITeam;
     week: IWeek;
+    homeScore: number;
+    awayScore: number;
 }
